@@ -10,7 +10,10 @@
     "slack"
   ],
   "author": "eskerda",
-  "license": "MIT",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/eskerda/slack-keep-presence.git"
+  },
   "dependencies": {
     "argparse": "^1.0.6",
     "jethro": "^2.7.1",
