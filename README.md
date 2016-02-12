@@ -17,6 +17,8 @@ $ slack-keep-presence -t <your token>
 $ SLACK_TOKEN=<your_token> slack-keep-presence
 ```
 
+You can get a token linked to your user at https://api.slack.com/web
+
 ## Motivation
 
 https://twitter.com/slackhq/status/448966862521786368
