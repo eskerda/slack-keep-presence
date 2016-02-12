@@ -3,7 +3,6 @@
 var SlackRTM = require('slackbotapi');
 var Slack = require('slack-node');
 var logger = require('jethro');
-var util = require('util');
 
 class SlackPresence {
     constructor(token, debug) {
