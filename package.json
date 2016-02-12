@@ -1,0 +1,20 @@
+{
+  "name": "slack-keep-presence",
+  "version": "1.0.0",
+  "description": "Sets you active when auto-away kicks in",
+  "bin": {
+    "slack-keep-presence": "./app.js"
+  },
+  "main": "./index.js",
+  "keywords": [
+    "slack"
+  ],
+  "author": "eskerda",
+  "license": "MIT",
+  "dependencies": {
+    "argparse": "^1.0.6",
+    "jethro": "^2.7.1",
+    "slack-node": "^0.1.7",
+    "slackbotapi": "^1.3.7"
+  }
+}
