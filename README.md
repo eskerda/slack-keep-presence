@@ -18,6 +18,10 @@ $ slack-keep-presence -t <your token>
 ```
 $ SLACK_TOKEN=<your_token> slack-keep-presence
 ```
+Easiest is to define `SLACK_TOKEN` environment variable and just run it as 
+```
+$ slack-keep-presence
+```
 
 You can get a token linked to your user at https://api.slack.com/docs/oauth-test-tokens
 
