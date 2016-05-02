@@ -10,6 +10,8 @@ $ npm install slack-keep-presence
 
 ## Usage
 
+> Following assumes `$HOME/node_modules/.bin` is present on your `$PATH`
+
 ```
 $ slack-keep-presence -t <your token>
 ```
@@ -17,7 +19,7 @@ $ slack-keep-presence -t <your token>
 $ SLACK_TOKEN=<your_token> slack-keep-presence
 ```
 
-You can get a token linked to your user at https://api.slack.com/web
+You can get a token linked to your user at https://api.slack.com/docs/oauth-test-tokens
 
 ## Motivation
 
