@@ -1,5 +1,7 @@
 # slack-keep-presence
 
+![example](http://i.imgur.com/jZ1osWk.png)
+
 Keeps your slack user active whenever auto-away kicks in. Also logs or shows
 a system notification whenever you are mentioned or receive a DM. Perfect
 for these ocasions when... you feel like slacking your slack.
