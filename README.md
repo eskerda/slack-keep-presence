@@ -4,7 +4,7 @@
 
 Keeps your slack user active whenever auto-away kicks in. Also logs or shows
 a system notification whenever you are mentioned or receive a DM. Perfect
-for these ocasions when... you feel like slacking your slack.
+for these ocasions when you feel like… slacking from Slack.
 
 ## Usage
 
@@ -12,7 +12,7 @@ for these ocasions when... you feel like slacking your slack.
 
 ```
 $ slack-keep-presence --help
-usage: app.js [-h] [-t TOKEN] [-d] [-n]
+usage: slack-keep-presence [-h] [-t TOKEN] [-d] [-n]
 
 Keeps your user active whenever auto-away kicks in
 
