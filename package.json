@@ -1,6 +1,6 @@
 {
   "name": "slack-keep-presence",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sets you active when auto-away kicks in",
   "bin": {
     "slack-keep-presence": "./app.js"
@@ -11,12 +11,13 @@
   ],
   "author": "eskerda",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/eskerda/slack-keep-presence.git"
+    "type": "git",
+    "url": "https://github.com/eskerda/slack-keep-presence.git"
   },
   "dependencies": {
     "argparse": "^1.0.6",
     "jethro": "^2.7.1",
+    "node-notifier": "^4.5.0",
     "slack-node": "^0.1.7",
     "slackbotapi": "^1.3.7"
   }

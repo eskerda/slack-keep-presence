@@ -1,16 +1,30 @@
 # slack-keep-presence
 
-Keeps your slack user active whenever auto-away kicks in.
-
-## Installation
-
-```
-$ npm install slack-keep-presence
-```
+Keeps your slack user active whenever auto-away kicks in. Also logs or shows
+a system notification whenever you are mentioned or receive a DM. Perfect
+for these ocasions when... you feel like slacking your slack.
 
 ## Usage
 
 > Following assumes `$HOME/node_modules/.bin` is present on your `$PATH`
+
+```
+$ slack-keep-presence --help
+usage: app.js [-h] [-t TOKEN] [-d] [-n]
+
+Keeps your user active whenever auto-away kicks in
+
+Optional arguments:
+  -h, --help            Show this help message and exit.
+  -t TOKEN, --token TOKEN
+                        Your slack token. Can be set by env var SLACK_TOKEN. 
+                        Get one at https://api.slack.com/web
+  -d, --debug           Log all slack RTM events (default: false)
+  -n, --notifications   Try to use system notifications for mentions and 
+                        DMs(default: false)
+```
+
+### Examples
 
 ```
 $ slack-keep-presence -t <your token>
@@ -18,12 +32,19 @@ $ slack-keep-presence -t <your token>
 ```
 $ SLACK_TOKEN=<your_token> slack-keep-presence
 ```
-Easiest is to define `SLACK_TOKEN` environment variable and just run it as 
+Easiest is to define `SLACK_TOKEN` environment variable and just run it as
 ```
 $ slack-keep-presence
 ```
 
 You can get a token linked to your user at https://api.slack.com/docs/oauth-test-tokens
+
+## Installation
+
+```
+$ npm install slack-keep-presence
+```
+
 
 ## Motivation
 
