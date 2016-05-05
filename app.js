@@ -23,10 +23,20 @@ parser.addArgument(['-d', '--debug'], {
     action: 'storeTrue',
 });
 
+parser.addArgument(['-n', '--notifications'], {
+    addHelp: true,
+    help: 'Try to use system notifications for mentions and DMs' +
+          '(default: false)',
+    defaultValue: false,
+    action: 'storeTrue',
+});
+
 var args = parser.parseArgs();
-if (!args['token']) {
+var token = args['token']
+
+if (!token) {
     return parser.printHelp();
 }
 
-var slack_presence = new SlackPresence(args['token'], args['debug']);
+var slack_presence = new SlackPresence(args['token'], args);
 slack_presence.init();
