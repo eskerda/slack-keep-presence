@@ -16,7 +16,7 @@ class SlackPresence {
                 icon: ':robot_face:',
                 username: '[away] ${me}',
                 as_me: false,
-                in_private: true,
+                in_private: false,
                 reply_template: '${msg}',
                 warmup: 5,
             },
