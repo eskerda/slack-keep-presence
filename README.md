@@ -6,6 +6,12 @@ Keeps your slack user active whenever auto-away kicks in. Also logs or shows
 a system notification whenever you are mentioned or receive a DM. Perfect
 for these ocasions when you feel like… slacking from Slack.
 
+## Installation
+
+```
+$ npm install slack-keep-presence
+```
+
 ## Usage
 
 > Following assumes `$HOME/node_modules/.bin` is present on your `$PATH`
@@ -19,12 +25,17 @@ Keeps your user active whenever auto-away kicks in
 Optional arguments:
   -h, --help            Show this help message and exit.
   -t TOKEN, --token TOKEN
-                        Your slack token. Can be set by env var SLACK_TOKEN. 
-                        Get one at https://api.slack.com/web
-  -d, --debug           Log all slack RTM events (default: false)
-  -n, --notifications   Try to use system notifications for mentions and 
-                        DMs(default: false)
+                        Your slack token. Can be set by env var SLACK_TOKEN.
+  -d, --debug           Log all slack RTM events
+  -n, --notifications   Try to use system notifications for mentions and DMs
+  -m MSG, --msg MSG     (Auto Away) Respond to mentions and PM with this msg
+  -c CONFIG, --config CONFIG
+                        Read config file
 ```
+
+Check [conf.sample](https://github.com/eskerda/slack-keep-presence/blob/master/conf.sample)
+for config usage. This file can be either provided with the `-c` flag or stored
+in `$HOME/.config/slack-keep-presence`.
 
 ### Examples
 
@@ -41,12 +52,62 @@ $ slack-keep-presence
 
 You can get a token linked to your user at https://api.slack.com/docs/oauth-test-tokens
 
-## Installation
+#### Set an auto-away message
+
+It's good to be slacking, but it's even better to let others know. By passing
+a message to command, this will be responded to the channel where the event
+happened.
 
 ```
-$ npm install slack-keep-presence
+$ slack-keep-presence --msg "Currently away, will be back at 10.00 UTC"
 ```
 
+By default, it will post as a bot (with your name set to away) and
+on the channel or direct message where the mention happened.
+
+It's fully configurable through the configuration file. See [conf](#configuration).
+
+## Configuration
+
+To avoid overcrowding the utility with flags, it accepts a config file on [TOML]
+format. It can either be passed with `-c path` or set up at
+`$HOME/.conf/slack-keep-presence`.
+
+### Sample
+```
+# You can set configuration options here. All have been defined with the
+# defaults, so you can tweak them at your will
+
+# Your slack token, get one linked to you at https://api.slack.com/docs/oauth-test-tokens
+token = "<my token here>"
+
+# Debug all RTM events
+debug = false
+
+# Try to use system notifications for mentions and direct messages
+notifications = false
+
+[auto_reply]
+# If it starts and ends with ':' it's considered an emoji
+# If "${me}" is set, it will use your user image
+# Accepts urls too
+icon = ":robot_face:"
+
+# Accepts "${me}", which will be your name
+username = "[away] ${me}"
+
+# Post as me (this overrides icon and username)
+as_me = false
+
+# If mention happens on public, respond to user in a private msg
+in_private = false
+
+# Template to use to format away message. Defaults to "${msg}"
+reply_template = "Hello, ${user} I am away, reason: \"${msg}\""
+
+# Time to wait before sending msg again to channel / DM (in minutes)
+warmup = 5
+```
 
 ## Motivation
 

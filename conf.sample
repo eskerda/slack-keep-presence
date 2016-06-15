@@ -1,0 +1,24 @@
+# You can set configuration options here. All have been defined with the
+# defaults, so you can tweak them at your will
+
+# Your slack token, get one linked to you at https://api.slack.com/docs/oauth-test-tokens
+token = "<my token here>"
+# Debug all RTM events
+debug = false
+# Try to use system notifications for mentions and direct messages
+notifications = false
+
+[auto_reply]
+# Accepts urls. If it starts and ends with ':' it's considered an emoji
+# If "${me}" is set, it will use your image
+icon = ":robot_face:"
+# Accepts "${me}", which will be your name
+username = "[away] ${me}"
+# Post as me (this overrides icon and username)
+as_me = false
+# If mention happens on public, respond to user in a private msg
+in_private = false
+# Template to use to format away message. Defaults to "${msg}"
+reply_template = "Hello, ${user} I am away, reason: \"${msg}\""
+# Time to wait before sending msg again to channel / DM (in minutes)
+warmup = 5
