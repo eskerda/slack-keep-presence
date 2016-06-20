@@ -33,9 +33,12 @@ Optional arguments:
                         Read config file
 ```
 
-Check [conf.sample](https://github.com/eskerda/slack-keep-presence/blob/master/conf.sample)
-for config usage. This file can be either provided with the `-c` flag or stored
-in `$HOME/.config/slack-keep-presence`.
+Check [conf.sample] for [config usage]. This file can be either provided with
+the `-c` flag or stored in `$HOME/.config/slack-keep-presence`.
+
+
+[conf.sample]: https://github.com/eskerda/slack-keep-presence/blob/master/conf.sample
+[config usage]: #configuration
 
 ### Examples
 
@@ -69,11 +72,17 @@ It's fully configurable through the configuration file. See [conf](#configuratio
 
 ## Configuration
 
-To avoid overcrowding the utility with flags, it accepts a config file on [TOML]
-format. It can either be passed with `-c path` or set up at
-`$HOME/.conf/slack-keep-presence`.
+To avoid overcrowding the utility with flags, it accepts a config file on
+[TOML] format. It can either be passed with `-c path` or set up at
+`$HOME/.config/slack-keep-presence`.
+
+[TOML]: https://github.com/toml-lang/toml
 
 ### Sample
+[conf.sample]
+
+[conf.sample]: https://github.com/eskerda/slack-keep-presence/blob/master/conf.sample
+
 ```
 # You can set configuration options here. All have been defined with the
 # defaults, so you can tweak them at your will
