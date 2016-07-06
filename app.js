@@ -55,7 +55,7 @@ _.each(args, function(value, key, list) {
 
 var config_path;
 if (args['config']) {
-    config_path = path.join(__dirname, args['config'])
+    config_path = path.join(process.cwd(), args['config'])
 } else {
     config_path = path.join(process.env.HOME, '.config/slack-keep-presence')
 }

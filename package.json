@@ -1,6 +1,6 @@
 {
   "name": "slack-keep-presence",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Sets you active when auto-away kicks in",
   "bin": {
     "slack-keep-presence": "./app.js"
