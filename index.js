@@ -105,8 +105,9 @@ class SlackPresence {
         // Ignore my messages
         if (data['user'] == this.user_id)
             return;
+
         // Msg without text?
-        if (data['text'] === undefined)
+        if (!data['text'])
             return
 
         var direct_message = data['channel'].charAt(0) == 'D';
@@ -144,7 +145,7 @@ class SlackPresence {
    send_away_msg(data) {
        var now = Date.now();
        // Control endless-flood loop
-       if (this.warmup[data['channel']] != undefined) {
+       if (this.warmup[data['channel']] != null) {
            var warmup_time = this.options['auto_reply']['warmup'];
            // Convert minutes to ms
            warmup_time = warmup_time * 1000 * 60
