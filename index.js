@@ -1,15 +1,14 @@
-"use strict"
-var _ = require('lodash');
-var SlackRTM = require('slackbotapi');
-var Slack = require('slack-node');
-var logger = require('jethro');
-var template = require('es6-template-strings');
+const _ = require('lodash');
+const SlackRTM = require('slackbotapi');
+const Slack = require('slack-node');
+const logger = require('jethro');
+const template = require('es6-template-strings');
 
 const notifier = require('node-notifier');
 
 class SlackPresence {
     constructor(token, _options) {
-        var options = {
+        const options = {
             debug: false,
             notifications: false,
             auto_reply: {
@@ -43,7 +42,7 @@ class SlackPresence {
 
     notify(msg, _options) {
         _options = _options || {};
-        var options = {
+        const options = {
             title: 'slack-keep-presence',
         };
         _.defaultsDeep(options, _options);
@@ -110,20 +109,20 @@ class SlackPresence {
         if (!data['text'])
             return
 
-        var direct_message = data['channel'].charAt(0) == 'D';
-        var mention = data['text'].indexOf(this.user_id) >= 0;
+        const direct_message = data['channel'].charAt(0) == 'D';
+        const mention = data['text'].indexOf(this.user_id) >= 0;
         if (!direct_message && !mention)
             return;
-        var prefix;
+        let prefix;
         if (mention) {
             prefix = '[M]';
         } else {
             prefix = '[DM]';
         }
-        var user_info = this.users[data['user']];
-        var username = user_info ? user_info['real_name'] : data['username'];
+        const user_info = this.users[data['user']];
+        const username = user_info ? user_info['real_name'] : data['username'];
         prefix += ' ' + username;
-        var msg = data['text']
+        let msg = data['text']
         // Remove <slack actions>
         msg = msg.replace(/\s*_<slack-action.+>_/m, '');
         // Limit msg length to 144 chars
@@ -143,10 +142,10 @@ class SlackPresence {
    }
 
    send_away_msg(data) {
-       var now = Date.now();
+       const now = Date.now();
        // Control endless-flood loop
        if (this.warmup[data['channel']] != null) {
-           var warmup_time = this.options['auto_reply']['warmup'];
+           let warmup_time = this.options['auto_reply']['warmup'];
            // Convert minutes to ms
            warmup_time = warmup_time * 1000 * 60
            if (now - this.warmup[data['channel']] < warmup_time) {
@@ -156,29 +155,29 @@ class SlackPresence {
 
        this.warmup[data['channel']] = now;
 
-       var text = template(this.options['auto_reply']['reply_template'], {
+       const text = template(this.options['auto_reply']['reply_template'], {
            user: '<@' + data['user'] + '>',
            me: '<@' + this.user_id + '>',
            msg: this.options['msg'],
        });
 
-       var channel;
+       let channel;
        if (this.options['auto_reply']['in_private'])
            channel = this.ims[data['user']];
        else
            channel = data['channel'];
 
-       var username = template(this.options['auto_reply']['username'], {
+       const username = template(this.options['auto_reply']['username'], {
            me: this.users[this.user_id]['name'],
        });
 
-       var message = {
+       const message = {
            text: text,
            channel: channel,
            as_user: this.options['auto_reply']['as_me'],
            username: username,
        }
-       var icon_uri = template(this.options['auto_reply']['icon'], {
+       const icon_uri = template(this.options['auto_reply']['icon'], {
            me: this.users[this.user_id]['profile']['image_original'],
        });
 
