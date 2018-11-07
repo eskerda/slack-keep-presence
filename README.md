@@ -1,3 +1,5 @@
+**This software is now deprecated**: I created this some time ago when I was using slack at a job. Slack has deprecated the basic system this was using to keep your user active, therefore this software does not use as intended anymore. There's probably a new way of accomplishing the same, but I do not use slack at the moment and lack the time to keep this updated. Luckily for you, there are alternatives that seem to work: https://libraries.io/rubygems/slack-keep-presence
+
 # slack-keep-presence
 
 ![example](http://i.imgur.com/jZ1osWk.png)
